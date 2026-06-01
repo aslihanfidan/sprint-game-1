@@ -12,7 +12,7 @@ QUESTION_TIME = 20  # seconds per question
 MAX_SCORE = 1000    # max points for instant correct answer
 
 st.set_page_config(
-    page_title="🎲 Quiz Arena",
+    page_title="🎲 Mazeretpoly",
     page_icon="🎲",
     layout="wide",
     initial_sidebar_state="collapsed",
