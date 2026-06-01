@@ -424,6 +424,63 @@ def host_view():
     if status == "lobby":
         st.markdown('<span class="status-pill pill-lobby">🟦 Lobi — Oyuncular katılıyor</span>', unsafe_allow_html=True)
 
+        # ── QR + JOIN URL ──
+        if "app_url" not in st.session_state:
+            st.session_state.app_url = ""
+
+        if not st.session_state.app_url:
+            st.markdown('<div class="card">', unsafe_allow_html=True)
+            st.markdown("### 🔗 Uygulama URL'ini Girin")
+            st.markdown("<p style='color:#a78bfa;'>Oyuncuların QR koduyla katılabilmesi için Streamlit Cloud URL'ini bir kez girin.</p>", unsafe_allow_html=True)
+            url_input = st.text_input("", placeholder="https://xxx.streamlit.app", label_visibility="collapsed")
+            if st.button("✅ URL'i Kaydet"):
+                if url_input.strip().startswith("http"):
+                    st.session_state.app_url = url_input.strip().rstrip("/")
+                    st.rerun()
+                else:
+                    st.error("Geçerli bir URL girin (https:// ile başlamalı)")
+            st.markdown('</div>', unsafe_allow_html=True)
+        else:
+            join_url = st.session_state.app_url
+            try:
+                import qrcode, io, base64
+                qr = qrcode.QRCode(version=2, box_size=7, border=3)
+                qr.add_data(join_url)
+                qr.make(fit=True)
+                img = qr.make_image(fill_color="#1a1a2e", back_color="white")
+                buf = io.BytesIO()
+                img.save(buf, format="PNG")
+                qr_b64 = base64.b64encode(buf.getvalue()).decode()
+                qr_html = f'<img src="data:image/png;base64,{qr_b64}" style="width:200px; border-radius:12px;"/>'
+            except ImportError:
+                qr_html = '<p style="color:#ef4444; font-size:0.9rem;">⚠️ requirements.txt'e <b>qrcode[pil]</b> ekle</p>'
+
+            qcol, icol = st.columns([1, 2])
+            with qcol:
+                st.markdown(f"""
+                <div class="card" style="text-align:center;">
+                    <p style="color:#a78bfa; font-size:0.9rem; margin-bottom:0.5rem;">📱 QR Kodu Okut</p>
+                    {qr_html}
+                    <p style="color:#FFD700; font-family:'Fredoka One',cursive; font-size:0.85rem; margin-top:0.7rem; word-break:break-all;">{join_url}</p>
+                </div>
+                """, unsafe_allow_html=True)
+            with icol:
+                st.markdown("""
+                <div class="card">
+                    <h3 style="color:white;">📋 Nasıl Katılırım?</h3>
+                    <ol style="color:#a78bfa; font-size:1rem; line-height:2.2rem;">
+                        <li>Telefonunla QR kodu okut</li>
+                        <li>Açılan sayfada adını yaz</li>
+                        <li><b style="color:#FFD700;">Katıl!</b> butonuna bas</li>
+                        <li>Host oyunu başlatınca sorular gelir</li>
+                    </ol>
+                    <p style="color:rgba(255,255,255,0.3); font-size:0.75rem;">Sidebar'dan mod değiştirmen gerekmez — link doğrudan oyuncu ekranını açar.</p>
+                </div>
+                """, unsafe_allow_html=True)
+            if st.button("🔗 URL'i Değiştir"):
+                st.session_state.app_url = ""
+                st.rerun()
+
         col1, col2 = st.columns([2, 1])
         with col1:
             st.markdown('<div class="card">', unsafe_allow_html=True)
@@ -758,8 +815,38 @@ def main():
     init_db()
     inject_css()
 
-    params = st.query_params
-    mode = params.get("mode", "player")
+    # Query param routing (robust across Streamlit versions)
+    try:
+        params = st.query_params
+        # Streamlit >= 1.30: params is a dict-like object
+        if hasattr(params, "to_dict"):
+            mode = params.to_dict().get("mode", "player")
+        elif isinstance(params, dict):
+            mode = params.get("mode", "player")
+        else:
+            mode = getattr(params, "mode", "player")
+            if isinstance(mode, list):
+                mode = mode[0]
+    except Exception:
+        mode = "player"
+
+    # Sidebar override (fallback if URL params don't work)
+    with st.sidebar:
+        st.markdown("### 🎛️ Mod Seç")
+        sidebar_mode = st.radio(
+            "",
+            ["👤 Oyuncu", "🖥️ Host"],
+            index=1 if mode == "host" else 0,
+            label_visibility="collapsed"
+        )
+        if sidebar_mode == "🖥️ Host":
+            mode = "host"
+        else:
+            mode = "player"
+
+        st.markdown("---")
+        st.markdown("**Host URL:** `?mode=host`")
+        st.markdown("**Oyuncu URL:** *(normal link)*")
 
     if mode == "host":
         host_view()
