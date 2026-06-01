@@ -688,7 +688,7 @@ def player_view():
     if "last_answer" not in st.session_state:
         st.session_state.last_answer = {}  # q_no -> (is_correct, score_gained)
 
-    st.markdown('<div class="big-title">🎲 Quiz Arena</div>', unsafe_allow_html=True)
+    st.markdown('<div class="big-title">🎲 Mazeretpoly</div>', unsafe_allow_html=True)
 
     # ── JOIN ────────────────────────────────────
     if not st.session_state.joined:
