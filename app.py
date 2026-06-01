@@ -453,7 +453,7 @@ def host_view():
                 qr_b64 = base64.b64encode(buf.getvalue()).decode()
                 qr_html = f'<img src="data:image/png;base64,{qr_b64}" style="width:200px; border-radius:12px;"/>'
             except ImportError:
-                qr_html = '<p style="color:#ef4444; font-size:0.9rem;">⚠️ requirements.txt'e <b>qrcode[pil]</b> ekle</p>'
+                qr_html = '<p style="color:#ef4444; font-size:0.9rem;">&#9888;&#65039; requirements.txt&#39;e <b>qrcode[pil]</b> ekle</p>'
 
             qcol, icol = st.columns([1, 2])
             with qcol:
