@@ -82,6 +82,16 @@ QUESTIONS = {
         ],
         "answer": 2,
     },
+    7: {
+        "q": "En güçlü mazeret hangisi olurdu? 😄",
+        "options": [
+            "Kahvem bitmediği için gelemedim",
+            "Toplantı vardı ama ben de oradaydım",
+            "Unuttum ama hatırlayınca üzüldüm",
+            "Uyuyakalmışım",
+        ],
+        "answer": 2,
+    },
 }
 
 # ─────────────────────────────────────────────
