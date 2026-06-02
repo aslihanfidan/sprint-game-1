@@ -12,7 +12,7 @@ QUESTION_TIME = 20  # seconds per question
 MAX_SCORE = 1000    # max points for instant correct answer
 
 st.set_page_config(
-    page_title="🎲 Quiz Arena",
+    page_title="🎲 Mazeretopoly",
     page_icon="🎲",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -26,8 +26,8 @@ QUESTIONS = {
         "q": "Mazeretsiz katılımın tanımı nedir?",
         "options": [
             "Katılımın hiç olmaması",
-            "Önceden izin alınmadan gelinmemesi",
-            "Sadece geç kalınması",
+            "Belgelendirilmemiş ve sistem üzerinden zamanında bildirilmemiş katılmama",
+            "Eğitime geç kalınması",
             "Evden çalışılması",
         ],
         "answer": 1,
@@ -36,89 +36,49 @@ QUESTIONS = {
         "q": "Aşağıdakilerden hangisi mazeret sayılmaz?",
         "options": [
             "Sağlık raporu",
-            "Resmi izin",
-            "Trafik sıkışıklığı",
-            "Yönetici onayı",
+            "Onaylı izin",
+            "İş yoğunluğu",
+            "Doğal Afet",
         ],
         "answer": 2,
     },
     3: {
         "q": "Mazeret bildirimini en geç ne zaman yapmak gerekir?",
         "options": [
-            "Aynı gün içinde",
-            "Sonraki hafta",
-            "Ay sonunda",
-            "Gerek yok",
+            "Eğitim sonrası 3 iş günü içinde",
+            "Çıkmaz ayın son çarşambası",
+            "Tülayın mesaisi bitmeden önce",
+            "18.30 whatsapp",
         ],
         "answer": 0,
     },
     4: {
-        "q": "Toplantı sabah 09:00. 08:55'te gelmeyeceğini fark ettin. Ne yaparsın?",
+        "q": "Eğitim sabah 09:30'da başlıyor. 08:55'te gelemeyeceğini fark ettin. Ne yaparsın?",
         "options": [
-            "Hiç haber vermem",
-            "Toplantıdan sonra açıklarım",
-            "Hemen ilgili kişiye bilgi veririm",
-            "Gelmiş gibi görünürüm",
+            "Uyumaya devam",
+            "YK akademiye, Özden Hanım cc'li mail ile açıklarım",
+            "İk'ya sor mazeretsiz katılmama alanından talep açarım.",
+            "Yokluğumun farkedilmemesi için dua ederim",
         ],
         "answer": 2,
     },
     5: {
-        "q": "Aynı gün içinde acil bir durum çıktı ve katılamayacaksın. En doğru yaklaşım?",
-        "options": [
-            "Gün sonunda haber ver",
-            "Ertesi gün açıklarsın",
-            "En kısa sürede bildir ve alternatif çözüm öner",
-            "Sessiz kal",
-        ],
-        "answer": 2,
-    },
-    6: {
-        "q": "Bir gün önce haber vermeyi unuttun. Ne yapmalısın?",
-        "options": [
-            "Artık gerek yok",
-            "Sonradan da olsa dürüstçe bildir",
-            "Üstünü kapat",
-            "Bir daha hiç söyleme",
-        ],
-        "answer": 1,
-    },
-    7: {
         "q": "Aşağıdakilerden hangisi 'mazeret üretme sanatı' kategorisine girmez?",
         "options": [
-            "Alarm çalmadı",
-            "Metro bozuldu",
-            "Takvimde yanlış gün",
+            "Servis kapımdan almadı",
+            "Business class uçma talebim onaylanmadı",
+            "Eğitim daveti 1 hafta önce geldi",
             "Bildirim gelmedi",
         ],
         "answer": 2,
     },
-    8: {
+    6: {
         "q": "En güçlü mazeret hangisi olurdu? 😄",
         "options": [
             "Kahvem bitmediği için gelemedim",
             "Toplantı vardı ama ben de oradaydım",
             "Unuttum ama hatırlayınca üzüldüm",
             "Uyuyakalmışım",
-        ],
-        "answer": 2,
-    },
-    9: {
-        "q": "Mazeretsiz katılımın en önemli etkisi nedir?",
-        "options": [
-            "Sadece bireysel performansı etkiler",
-            "Ekip planlamasını bozabilir",
-            "Hiçbir etkisi yoktur",
-            "Sadece HR'ı ilgilendirir",
-        ],
-        "answer": 1,
-    },
-    10: {
-        "q": "Aşağıdakilerden hangisi iyi bir davranış örneğidir?",
-        "options": [
-            "Son dakika haber vermek",
-            "Hiç haber vermemek",
-            "Önceden bilgi + alternatif çözüm",
-            "Süreci bekletmek",
         ],
         "answer": 2,
     },
