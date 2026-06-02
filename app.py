@@ -421,7 +421,7 @@ def dice_emoji(n):
 # HOST VIEW
 # ─────────────────────────────────────────────
 def host_view():
-    st.markdown('<div class="big-title">🎲 Quiz Arena</div>', unsafe_allow_html=True)
+    st.markdown('<div class="big-title">🎲 Mazeretopoly</div>', unsafe_allow_html=True)
     st.markdown('<div class="subtitle">HOST PANELİ</div>', unsafe_allow_html=True)
 
     status = get_state("status")
@@ -698,7 +698,7 @@ def player_view():
     if "last_answer" not in st.session_state:
         st.session_state.last_answer = {}  # q_no -> (is_correct, score_gained)
 
-    st.markdown('<div class="big-title">🎲 Quiz Arena</div>', unsafe_allow_html=True)
+    st.markdown('<div class="big-title">🎲 Mazeretopoly</div>', unsafe_allow_html=True)
 
     # ── JOIN ────────────────────────────────────
     if not st.session_state.joined:
