@@ -12,7 +12,7 @@ QUESTION_TIME = 20  # seconds per question
 MAX_SCORE = 1000    # max points for instant correct answer
 
 st.set_page_config(
-    page_title="🎲 Mazeretpoly",
+    page_title="🎲 Quiz Arena",
     page_icon="🎲",
     layout="wide",
     initial_sidebar_state="collapsed",
@@ -23,64 +23,104 @@ st.set_page_config(
 # ─────────────────────────────────────────────
 QUESTIONS = {
     1: {
-        "q": "Merkez Bankası'nın temel para politikası aracı hangisidir?",
-        "options": ["Döviz rezervi", "Politika faizi", "Zorunlu karşılık", "Açık piyasa işlemleri"],
+        "q": "Mazeretsiz katılımın tanımı nedir?",
+        "options": [
+            "Katılımın hiç olmaması",
+            "Önceden izin alınmadan gelinmemesi",
+            "Sadece geç kalınması",
+            "Evden çalışılması",
+        ],
         "answer": 1,
     },
     2: {
-        "q": "Bir bankanın sermaye yeterliliği rasyosu neyi ölçer?",
-        "options": ["Likidite gücü", "Kredi kalitesi", "Risklere karşı sermaye tamponunu", "Mevduat büyümesini"],
+        "q": "Aşağıdakilerden hangisi mazeret sayılmaz?",
+        "options": [
+            "Sağlık raporu",
+            "Resmi izin",
+            "Trafik sıkışıklığı",
+            "Yönetici onayı",
+        ],
         "answer": 2,
     },
     3: {
-        "q": "IBAN kısaltmasının açılımı nedir?",
-        "options": ["International Bank Account Number", "Internal Banking Authorization Node", "Integrated Balance Audit Network", "Inter-Bank Allocation Notation"],
+        "q": "Mazeret bildirimini en geç ne zaman yapmak gerekir?",
+        "options": [
+            "Aynı gün içinde",
+            "Sonraki hafta",
+            "Ay sonunda",
+            "Gerek yok",
+        ],
         "answer": 0,
     },
     4: {
-        "q": "Repo işleminde ne gerçekleşir?",
-        "options": ["Hisse senedi alım satımı", "Kısa vadeli menkul kıymet karşılığı borçlanma", "Döviz swapı", "Uzun vadeli kredi açılması"],
-        "answer": 1,
+        "q": "Toplantı sabah 09:00. 08:55'te gelmeyeceğini fark ettin. Ne yaparsın?",
+        "options": [
+            "Hiç haber vermem",
+            "Toplantıdan sonra açıklarım",
+            "Hemen ilgili kişiye bilgi veririm",
+            "Gelmiş gibi görünürüm",
+        ],
+        "answer": 2,
     },
     5: {
-        "q": "Enflasyon oranı faiz oranından yüksekse reel faiz ne olur?",
-        "options": ["Pozitif", "Negatif", "Sıfır", "Değişmez"],
-        "answer": 1,
+        "q": "Aynı gün içinde acil bir durum çıktı ve katılamayacaksın. En doğru yaklaşım?",
+        "options": [
+            "Gün sonunda haber ver",
+            "Ertesi gün açıklarsın",
+            "En kısa sürede bildir ve alternatif çözüm öner",
+            "Sessiz kal",
+        ],
+        "answer": 2,
     },
     6: {
-        "q": "Kredi temerrüt swapı (CDS) ne amaçla kullanılır?",
-        "options": ["Kur riskinden korunmak", "Kredi riskini transfer etmek", "Faiz arbitrajı", "Likidite sağlamak"],
+        "q": "Bir gün önce haber vermeyi unuttun. Ne yapmalısın?",
+        "options": [
+            "Artık gerek yok",
+            "Sonradan da olsa dürüstçe bildir",
+            "Üstünü kapat",
+            "Bir daha hiç söyleme",
+        ],
         "answer": 1,
     },
     7: {
-        "q": "Basel III düzenlemeleri öncelikle neyi hedefler?",
-        "options": ["Banka karlılığını artırmak", "Bankacılık sektörü dayanıklılığını güçlendirmek", "Kredi faizlerini düşürmek", "Mevduat güvencesini kaldırmak"],
-        "answer": 1,
+        "q": "Aşağıdakilerden hangisi 'mazeret üretme sanatı' kategorisine girmez?",
+        "options": [
+            "Alarm çalmadı",
+            "Metro bozuldu",
+            "Takvimde yanlış gün",
+            "Bildirim gelmedi",
+        ],
+        "answer": 2,
     },
     8: {
-        "q": "Bir tahvilin kuponu nedir?",
-        "options": ["Tahvilin satış fiyatı", "Periyodik faiz ödemesi", "Vade sonu değeri", "İhraç maliyeti"],
-        "answer": 1,
+        "q": "En güçlü mazeret hangisi olurdu? 😄",
+        "options": [
+            "Kahvem bitmediği için gelemedim",
+            "Toplantı vardı ama ben de oradaydım",
+            "Unuttum ama hatırlayınca üzüldüm",
+            "Uyuyakalmışım",
+        ],
+        "answer": 2,
     },
     9: {
-        "q": "Likidite riski ne anlama gelir?",
-        "options": ["Piyasa fiyatlarının dalgalanması", "Yükümlülükleri karşılayacak nakit bulunamaması", "Kredi geri ödenmemesi", "Operasyonel aksaklıklar"],
+        "q": "Mazeretsiz katılımın en önemli etkisi nedir?",
+        "options": [
+            "Sadece bireysel performansı etkiler",
+            "Ekip planlamasını bozabilir",
+            "Hiçbir etkisi yoktur",
+            "Sadece HR'ı ilgilendirir",
+        ],
         "answer": 1,
     },
     10: {
-        "q": "Swap işleminin temel amacı nedir?",
-        "options": ["Spekülatif kazanç", "Nakit akışlarını değiştirmek / riskten korunmak", "Mevduat toplamak", "Sermaye artırmak"],
-        "answer": 1,
-    },
-    11: {
-        "q": "Bir şirketin öz kaynak karlılığı (ROE) nasıl hesaplanır?",
-        "options": ["Net Kar / Toplam Varlıklar", "Net Kar / Öz Kaynak", "FAVÖK / Gelir", "Brüt Kar / Net Satışlar"],
-        "answer": 1,
-    },
-    12: {
-        "q": "Menkul kıymetleştirme sürecinde ne yapılır?",
-        "options": ["Hisse senedi ihraç edilir", "Varlıklar havuzlanarak tahvile dönüştürülür", "Merkez Bankası'na başvurulur", "Döviz pozisyonu kapatılır"],
-        "answer": 1,
+        "q": "Aşağıdakilerden hangisi iyi bir davranış örneğidir?",
+        "options": [
+            "Son dakika haber vermek",
+            "Hiç haber vermemek",
+            "Önceden bilgi + alternatif çözüm",
+            "Süreci bekletmek",
+        ],
+        "answer": 2,
     },
 }
 
@@ -688,7 +728,7 @@ def player_view():
     if "last_answer" not in st.session_state:
         st.session_state.last_answer = {}  # q_no -> (is_correct, score_gained)
 
-    st.markdown('<div class="big-title">🎲 Mazeretpoly</div>', unsafe_allow_html=True)
+    st.markdown('<div class="big-title">🎲 Quiz Arena</div>', unsafe_allow_html=True)
 
     # ── JOIN ────────────────────────────────────
     if not st.session_state.joined:
