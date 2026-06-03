@@ -411,7 +411,7 @@ def dice_emoji(n):
 # HOST VIEW
 # ─────────────────────────────────────────────
 def host_view():
-    st.markdown('<div class="big-title">🎲 Mazeretopoly</div>', unsafe_allow_html=True)
+    st.markdown('<div class="big-title">🎲 Mazeretpoly</div>', unsafe_allow_html=True)
     st.markdown('<div class="subtitle">HOST PANELİ</div>', unsafe_allow_html=True)
 
     status = get_state("status")
