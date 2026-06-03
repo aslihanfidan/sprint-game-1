@@ -47,7 +47,7 @@ QUESTIONS = {
         "options": [
             "Eğitim sonrası 3 iş günü içinde",
             "Çıkmaz ayın son çarşambası",
-            "Tülayın mesaisi bitmeden önce",
+            "planlama ekibinin mesaisi bitince",
             "18.30 whatsapp",
         ],
         "answer": 0,
